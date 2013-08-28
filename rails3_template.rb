@@ -53,14 +53,14 @@ gem 'active_attr'
 gem 'default_value_for'
 
 # for Development
-group :development do
+gem_group :development do
   gem 'erb2haml'
   gem 'i18n_generators'
   gem 'quiet_assets'
   gem 'letter_opener'
 end
 
-group :development, :test do
+gem_group :development, :test do
   gem 'capybara'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
