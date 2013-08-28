@@ -1,3 +1,8 @@
+require 'rails'
+require 'bundler'
+require 'haml'
+require 'net/http'
+require 'net/https'
 #
 # Application Template
 #
@@ -14,6 +19,10 @@ def get_and_gsub(source_path,  local_path)
   gsub_file local_path,  /%working_user%/,  @working_user
   gsub_file local_path,  /%working_dir%/,  @working_dir
 end
+
+puts "\n========================================================="
+puts " MAHM RAILS 3 TEMPLATE"
+puts "=========================================================\n"
 
 #------------------------------------------------------------------------------
 # Gemfile
@@ -101,3 +110,7 @@ generate 'simple_form:install --bootstrap'
 git :init
 git :add => '.'
 git :commit => '-am "Initial Commit"'
+
+puts "\n========================================================="
+puts " INSTALLATION COMPLATE!"
+puts "=========================================================\n"
