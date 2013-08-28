@@ -1,6 +1,5 @@
 require 'rails'
 require 'bundler'
-require 'haml'
 require 'net/http'
 require 'net/https'
 #
