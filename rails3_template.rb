@@ -91,6 +91,9 @@ initialize_on_precompile = <<EOS
 EOS
 insert_into_file 'config/application.rb', initialize_on_precompile, after: "config.assets.version = '1.0'\n"
 
+# routes.rb
+insert_into_file 'config/routes.rb', "root to: 'home#index'"
+
 # Generate
 remove_dir 'test'
 generate 'rspec:install'
