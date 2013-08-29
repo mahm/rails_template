@@ -37,7 +37,6 @@ gem 'font-awesome-rails'
 
 # Basics
 gem 'haml-rails'
-gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'rack-pjax'
 gem 'bootstrap-sass', '~> 2.3.2.0'
