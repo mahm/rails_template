@@ -83,6 +83,12 @@ get_and_store 'app/assets/images/ico/favicon.ico'
 remove_file 'app/views/layouts/application.html.erb'
 get_and_store 'app/views/layouts/application.html.haml'
 get_and_store 'app/views/layouts/_flash.html.haml'
+empty_directory 'app/views/home'
+get_and_store 'app/views/home/index.html.haml'
+
+# Controllers
+empty_directory 'app/controllers'
+get_and_store 'app/controllers/home_controller.rb'
 
 # application.rb
 initialize_on_precompile = <<EOS
