@@ -109,7 +109,7 @@ application_name = <<EOS
     'mahm Rails Template'
   end
 EOS
-insert_into_file 'app/helper/application_helper', application_name, after: "module ApplicationHelper\n"
+insert_into_file 'app/helper/application_helper.rb', application_name, after: "module ApplicationHelper\n"
 
 # Generate
 remove_dir 'test'
