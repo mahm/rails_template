@@ -5,18 +5,10 @@ require 'net/https'
 #
 # Application Template
 #
-repo_url = 'https://raw.github.com/mahm/rails3_template/master'
-gems = {}
-
 @app_name = app_name
 
-def get_and_gsub(source_path,  local_path)
-  get source_path,  local_path
-
-  gsub_file local_path,  /%app_name%/,  @app_name
-  gsub_file local_path,  /%app_name_classify%/,  @app_name.classify
-  gsub_file local_path,  /%working_user%/,  @working_user
-  gsub_file local_path,  /%working_dir%/,  @working_dir
+def get_and_store(filepath)
+  get "https://raw.github.com/mahm/rails_template/master/#{filepath}", filepath
 end
 
 puts "\n========================================================="
@@ -75,21 +67,22 @@ remove_file 'public/index.html'
 
 # Assets
 remove_file 'app/assets/stylesheets/application.css'
-get "#{repo_url}/app/assets/stylesheets/application.css", 'app/assets/stylesheets/application.css'
-get "#{repo_url}/app/assets/stylesheets/base.css.sass", 'app/assets/stylesheets/base.css.sass'
-empty_directory 'app/assets/stylesheets/colors'
-get "#{repo_url}/app/assets/stylesheets/colors/_colorlovers.css.sass", 'app/assets/stylesheets/colors/_colorlovers.css.sass'
-get "#{repo_url}/app/assets/stylesheets/colors/_dom.css.sass", 'app/assets/stylesheets/colors/_dom.css.sass'
-get "#{repo_url}/app/assets/stylesheets/colors/_rambaral.css.sass", 'app/assets/stylesheets/colors/_rambaral.css.sass'
+get_and_store 'app/assets/stylesheets/application.css'
+get_and_store 'app/assets/stylesheets/base.css.sass'
 
-get "#{repo_url}/app/assets/images/badge_grunge.png", 'app/assets/images/badge_grunge.png'
+empty_directory 'app/assets/stylesheets/colors'
+get_and_store 'app/assets/stylesheets/colors/_colorlovers.css.sass'
+get_and_store 'app/assets/stylesheets/colors/_dom.css.sass'
+get_and_store 'app/assets/stylesheets/colors/_rambaral.css.sass'
+
+get_and_store 'app/assets/images/badge_grunge.png'
 empty_directory 'app/assets/images/ico'
-get "#{repo_url}/app/assets/images/ico/favicon.ico", 'app/assets/images/ico/favicon.ico'
+get_and_store 'app/assets/images/ico/favicon.ico'
 
 # Views
 remove_file 'app/views/layouts/application.html.erb'
-get "#{repo_url}/app/views/layouts/application.html.haml", 'app/views/layouts/application.html.haml'
-get "#{repo_url}/app/views/layouts/_flash.html.haml", 'app/views/layouts/_flash.html.haml'
+get_and_store 'app/views/layouts/application.html.haml'
+get_and_store 'app/views/layouts/_flash.html.haml'
 
 # application.rb
 initialize_on_precompile = <<EOS
