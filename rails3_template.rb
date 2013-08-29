@@ -92,7 +92,7 @@ EOS
 insert_into_file 'config/application.rb', initialize_on_precompile, after: "config.assets.version = '1.0'\n"
 
 # routes.rb
-insert_into_file 'config/routes.rb', "root to: 'home#index'"
+insert_into_file 'config/routes.rb', "\n  root to: 'home#index'\n", after: "Application.routes.draw do\n"
 
 # Generate
 remove_dir 'test'
