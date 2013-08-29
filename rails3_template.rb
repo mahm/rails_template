@@ -98,7 +98,18 @@ EOS
 insert_into_file 'config/application.rb', initialize_on_precompile, after: "config.assets.version = '1.0'\n"
 
 # routes.rb
-insert_into_file 'config/routes.rb', "\n  root to: 'home#index'\n", after: "Application.routes.draw do\n"
+insert_into_file 'config/routes.rb', "\n  root to: 'home#index'\n\n", after: "Application.routes.draw do\n"
+
+# unicorn.rb
+get_and_store 'config/unicorn.rb'
+
+# application_helper.rb
+application_name = <<EOS
+  def application_name
+    'mahm Rails Template'
+  end
+EOS
+insert_into_file 'app/helper/application_helper', application_name, after: "module ApplicationHelper\n"
 
 # Generate
 remove_dir 'test'
