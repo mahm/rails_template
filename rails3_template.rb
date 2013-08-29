@@ -75,7 +75,7 @@ get_and_store 'app/assets/stylesheets/colors/_colorlovers.css.sass'
 get_and_store 'app/assets/stylesheets/colors/_dom.css.sass'
 get_and_store 'app/assets/stylesheets/colors/_rambaral.css.sass'
 
-get_and_store 'app/assets/images/badge_grunge.png'
+get_and_store 'app/assets/images/bedge_grunge.png'
 empty_directory 'app/assets/images/ico'
 get_and_store 'app/assets/images/ico/favicon.ico'
 
